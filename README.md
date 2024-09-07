@@ -1,3 +1,9 @@
 # exercise-qa
-sample gui automation done using playwright for https://the-internet.herokuapp.com
-hgjhg
+
+Preconditions before run the Tests
+
+1. Go to the terminal in this directory and run 'npm install'
+
+How to run the tests
+
+In the terminal run 'npm test'
