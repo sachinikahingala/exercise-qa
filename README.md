@@ -3,7 +3,7 @@ Harver QA Exercise - completed
 
 ## Preconditions before run the Tests
 
-- Go to the terminal in this directory(i.e excercise-qa) and run below command to install required node packages and playwright.
+- Go to the terminal in this directory(i.e excercise-qa) and run below command to install required node project dependancies.
 
 `npm install`
 
@@ -22,3 +22,8 @@ e.g. : to run in firefox
 - In the terminal run below command to run tests in headed mode.
 
 `npx playwright test --ui`
+
+
+## Bugs found in API Testing
+
+All the bugs found during API testing is documented in the 'API Bug Report.docx' here.
