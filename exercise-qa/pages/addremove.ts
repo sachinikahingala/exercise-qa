@@ -1,12 +1,9 @@
 import { Page, Locator, expect } from "@playwright/test";
 
-
 export class AddRemoveElementsPage {
     readonly page: Page;
     readonly addButton: Locator;
     readonly deleteButton: Locator;
-
-
 
     constructor(page: Page) {
         this.page = page;
@@ -16,27 +13,16 @@ export class AddRemoveElementsPage {
     }
 
     async addElement() {
-
         await this.addButton.click();
         await this.page.pause();
     }
-    async verifyAddedElement(count) {
+    async assertElementCount(elementcount) {
         //verify selected value in the drop down
-        await expect(this.deleteButton).toHaveCount(count);
-
-
-
+        await expect(this.deleteButton).toHaveCount(elementcount);
     }
 
     async removeElement() {
-
         await this.deleteButton.last().click();
         await this.page.pause();
     }
-
-    async verifyRemovedElement() {
-
-        await expect(this.deleteButton).toHaveCount(0);
-    }
-
 }

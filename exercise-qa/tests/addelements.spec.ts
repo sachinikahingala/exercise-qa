@@ -1,49 +1,42 @@
-import { test, type Page } from '@playwright/test';
-import { HomePage } from '../pages/homepage';
-import { AddRemoveElementsPage } from '../pages/addremove';
-
-
+import { test, type Page } from "@playwright/test";
+import { HomePage } from "../pages/homepage";
+import { AddRemoveElementsPage } from "../pages/addremove";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/');
-
+  await page.goto("/");
 });
 
-
-test.describe('Verify Add Elements and Remove', () => {
-
-  test('should allow me to add elements', async ({ page }) => {
-
+test.describe("Add / Remove Element Tests", () => {
+  test("verify add elements", async ({ page }) => {
     const addelementpage = new AddRemoveElementsPage(page);
     const homepage = new HomePage(page);
 
     await homepage.gotoAddElementsPage();
 
+    //verify add an element
     await addelementpage.addElement();
-    await addelementpage.verifyAddedElement(1);
+    await addelementpage.assertElementCount(1);
 
+    //verify add second element
     await addelementpage.addElement();
-    await addelementpage.verifyAddedElement(2);
+    await addelementpage.assertElementCount(2);
 
+    //verify add third element
     await addelementpage.addElement();
-    await addelementpage.verifyAddedElement(3);
-
-
+    await addelementpage.assertElementCount(3);
   });
-  test('should allow me to remove elements', async ({ page }) => {
-
+  test("verify remove elements", async ({ page }) => {
     const addelementpage = new AddRemoveElementsPage(page);
     const homepage = new HomePage(page);
 
     await homepage.gotoAddElementsPage();
 
+    //verify add an element
     await addelementpage.addElement();
-    await addelementpage.verifyAddedElement(1);
+    await addelementpage.assertElementCount(1);
+
+    //verify deletion of the added element
     await addelementpage.removeElement();
-    await addelementpage.verifyRemovedElement();
-
-
+    await addelementpage.assertElementCount(0);
   });
-
-
 });

@@ -1,6 +1,10 @@
 Harver QA Exercise - completed
 ========================
 
+## Notes
+
+- Tests are written in Typescript 
+
 ## Preconditions before run the Tests
 
 - Go to the terminal in this directory(i.e excercise-qa) and run below command to install required node project dependancies.
