@@ -10,7 +10,7 @@ export class ABTestingPage {
 
     }
 
-    async assertTitleIsPresent(title) {
+    async assertTitleIsPresent(title: string ) {
 
         await expect(this.Text).toBeVisible();
         await expect(this.Text).toContainText(title);

@@ -34,7 +34,7 @@ export class CheckBoxPage {
             await this.page.pause();
         }
     }
-    async assertChecked(option) {
+    async assertChecked(option: number) {
         if (option == 1) {
             //assert the checkbox01 is checked
             expect(this.checkbox01).toBeChecked();
@@ -45,7 +45,7 @@ export class CheckBoxPage {
             }
         }
     }
-    async assertUnchecked(option) {
+    async assertUnchecked(option: number) {
         if (option == 1) {
             //assert the checkbox01 is unchecked
             expect(await this.checkbox01.isChecked()).toBeFalsy();

@@ -16,7 +16,7 @@ export class AddRemoveElementsPage {
         await this.addButton.click();
         await this.page.pause();
     }
-    async assertElementCount(elementcount) {
+    async assertElementCount(elementcount: number) {
         //verify selected value in the drop down
         await expect(this.deleteButton).toHaveCount(elementcount);
     }

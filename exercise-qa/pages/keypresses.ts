@@ -9,12 +9,12 @@ export class KeyPressesPage {
         this.label = page.locator("#result");
     }
 
-    async pressbutton(buttonname) {
+    async pressbutton(buttonname: string) {
         await this.page.keyboard.press(buttonname);
         await this.page.pause();
     }
 
-    async assertpressedbutton(buttonname) {
+    async assertpressedbutton(buttonname: string) {
         await expect(this.label).toContainText("You entered: " + buttonname);
     }
 }

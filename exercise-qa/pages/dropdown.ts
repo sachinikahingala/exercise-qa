@@ -10,11 +10,11 @@ export class DropdownPage {
         this.dropdown = page.locator("#dropdown");
     }
 
-    async selectOption(option) {
+    async selectOption(option : string) {
         await this.dropdown.selectOption(option);
         await this.page.pause();
     }
-    async assertOption(dropdownvalue) {
+    async assertOption(dropdownvalue: string) {
         //verify selected value in the drop down
         await expect(this.dropdown).toHaveValue(dropdownvalue);
     }
