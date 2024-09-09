@@ -5,6 +5,11 @@ Harver QA Exercise - completed
 
 - Tests are written in Typescript 
 
+## Prequisites
+
+You'll need **Node.JS** and **NPM** installed to run tests.
+
+
 ## Preconditions before run the Tests
 
 - Go to the terminal in this directory(i.e excercise-qa) and run below command to install required node project dependancies.
