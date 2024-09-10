@@ -7,7 +7,7 @@ Harver QA Exercise - completed
 
 ## Prequisites
 
-You'll need **Node.JS** and **NPM** installed to run tests.
+You'll need **Node.JS** latest versions (12 or above) and **NPM** installed to run tests.
 
 
 ## Preconditions before run the Tests
