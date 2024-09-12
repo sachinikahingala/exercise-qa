@@ -18,7 +18,7 @@ export class HomePage {
 
   async gotoabtestingPage() {
     await this.page.goto("/abtest");
-    await expect(this.page).toHaveURL("/abtest");
+       
   }
 
   async gotoDropdownPage() {

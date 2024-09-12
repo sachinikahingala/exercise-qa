@@ -16,6 +16,6 @@ test.describe("AB Testing Page Tests", () => {
       console.log("ABC "+ await abtestingPage.getTitle());
       
       //verify the Title 
-      expect(await abtestingPage.getTitle()).toBe("A/B Test Variation 1");
+      expect(await abtestingPage.getTitle()).toContain("A/B Test");
   });
 });

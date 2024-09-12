@@ -12,7 +12,7 @@ export class ABTestingPage {
   }
 
   async getTitle() {
-    await this.page.pause();
+     
     return await this.Text.textContent();
   }
 }
