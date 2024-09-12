@@ -1,4 +1,4 @@
-import { test, type Page } from "@playwright/test";
+import { test, type Page,expect } from "@playwright/test";
 import { HomePage } from "../pages/homepage";
 import { ABTestingPage } from "../pages/abtesting";
 
@@ -12,6 +12,10 @@ test.describe("AB Testing Page Tests", () => {
     const homepage = new HomePage(page);
 
     await homepage.gotoabtestingPage();
-    await abtestingPage.assertTitleIsPresent("A/B Test Variation 1");
+ 
+      console.log("ABC "+ await abtestingPage.getTitle());
+      
+      //verify the Title 
+      expect(await abtestingPage.getTitle()).toBe("A/B Test Variation 1");
   });
 });

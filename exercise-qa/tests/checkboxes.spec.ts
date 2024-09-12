@@ -1,6 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { HomePage } from "../pages/homepage";
 import { CheckBoxPage } from "../pages/checkboxes";
+import assert from "assert";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
@@ -13,9 +14,11 @@ test.describe("Check boxes functionality", () => {
 
     await homepage.gotoCheckBoxPage();
     await checkboxpage.selectChekbox(1);
-    await checkboxpage.assertChecked(1);
+    //verify checkbox 01 is checked
+    expect(await checkboxpage.getCheckboxStatus(1)).toBeTruthy();
     await checkboxpage.uncheckChekbox(1);
-    await checkboxpage.assertUnchecked(1);
+    //verify checkbox 01 is unchecked
+    expect(await checkboxpage.getCheckboxStatus(1)).toBeFalsy();
   });
 
   test("verify check and uncheck option two", async ({ page }) => {
@@ -23,8 +26,10 @@ test.describe("Check boxes functionality", () => {
     const homepage = new HomePage(page);
 
     await homepage.gotoCheckBoxPage();
-    await checkboxpage.assertChecked(2);
+    //verify checkbox 02 is checked
+    expect(await checkboxpage.getCheckboxStatus(2)).toBeTruthy();
     await checkboxpage.uncheckChekbox(2);
-    await checkboxpage.assertUnchecked(2);
+    //verify checkbox 02 is unchecked
+    expect(await checkboxpage.getCheckboxStatus(2)).toBeFalsy();
   });
 });

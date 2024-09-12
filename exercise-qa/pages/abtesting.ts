@@ -1,18 +1,18 @@
 import { Page, Locator, expect } from "@playwright/test";
+import { log } from "console";
+import { text } from "stream/consumers";
 
 export class ABTestingPage {
-    readonly page: Page;
-    readonly Text: Locator;
+  readonly page: Page;
+  readonly Text: Locator;
 
-    constructor(page: Page) {
-        this.page = page;
-        this.Text = page.locator("xpath=//*[@id='content']/div/h3");
+  constructor(page: Page) {
+    this.page = page;
+    this.Text = page.locator("xpath=//*[@id='content']/div/h3");
+  }
 
-    }
-
-    async assertTitleIsPresent(title: string ) {
-
-        await expect(this.Text).toBeVisible();
-        await expect(this.Text).toContainText(title);
-    }
+  async getTitle() {
+    await this.page.pause();
+    return await this.Text.textContent();
+  }
 }

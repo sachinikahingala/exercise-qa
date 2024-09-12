@@ -1,4 +1,4 @@
-import { test, type Page } from "@playwright/test";
+import { test, type Page, expect } from "@playwright/test";
 import { HomePage } from "../pages/homepage";
 import { AddRemoveElementsPage } from "../pages/addremove";
 
@@ -15,15 +15,17 @@ test.describe("Add / Remove Element Tests", () => {
 
     //verify add an element
     await addelementpage.addElement();
-    await addelementpage.assertElementCount(1);
+    //verify the delete button count
+    expect(await addelementpage.getElementCount()).toBe(1);
 
     //verify add second element
     await addelementpage.addElement();
-    await addelementpage.assertElementCount(2);
+    //verify the delete button count
+    expect(await addelementpage.getElementCount()).toBe(2);
 
-    //verify add third element
     await addelementpage.addElement();
-    await addelementpage.assertElementCount(3);
+    //verify the delete button count
+    expect(await addelementpage.getElementCount()).toBe(3);
   });
   test("verify remove elements", async ({ page }) => {
     const addelementpage = new AddRemoveElementsPage(page);
@@ -31,12 +33,12 @@ test.describe("Add / Remove Element Tests", () => {
 
     await homepage.gotoAddElementsPage();
 
-    //verify add an element
     await addelementpage.addElement();
-    await addelementpage.assertElementCount(1);
+    //verify the delete button count
+    expect(await addelementpage.getElementCount()).toBe(1);
 
-    //verify deletion of the added element
     await addelementpage.removeElement();
-    await addelementpage.assertElementCount(0);
+    //verify the delete button count
+    expect(await addelementpage.getElementCount()).toBe(0);
   });
 });

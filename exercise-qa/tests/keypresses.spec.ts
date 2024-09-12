@@ -1,4 +1,4 @@
-import { test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { HomePage } from "../pages/homepage";
 import { KeyPressesPage } from "../pages/keypresses";
 
@@ -14,10 +14,10 @@ test.describe("Key presses functionality", () => {
     await homepage.gotoKeyPressesPage();
 
     await keypresspage.pressbutton("Shift");
-    await keypresspage.assertpressedbutton("SHIFT");
+    expect(await keypresspage.getlabel()).toBe("You entered: SHIFT");
 
     await keypresspage.pressbutton("Control");
-    await keypresspage.assertpressedbutton("CONTROL");
+    expect(await keypresspage.getlabel()).toBe("You entered: CONTROL");
   });
 
   test("should allow me to click on key combinations", async ({ page }) => {
@@ -25,8 +25,8 @@ test.describe("Key presses functionality", () => {
     const homepage = new HomePage(page);
 
     await homepage.gotoKeyPressesPage();
-
     await keypresspage.pressbutton("ArrowDown");
-    await keypresspage.assertpressedbutton("DOWN");
+
+    expect(await keypresspage.getlabel()).toBe("You entered: DOWN");
   });
 });
